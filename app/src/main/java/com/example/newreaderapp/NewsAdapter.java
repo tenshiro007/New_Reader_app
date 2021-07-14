@@ -1,9 +1,11 @@
 package com.example.newreaderapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +44,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 // TODO: 7/15/2021 navigete to web activity
+                Intent intent=new Intent(context, WebsiteActivity.class);
+                intent.putExtra("url",news.get(position).getLink());
+                context.startActivity(intent);
             }
         });
 
